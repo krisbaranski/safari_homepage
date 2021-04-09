@@ -1,5 +1,6 @@
 'use strict';
 
+const body = document.body;
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
 const days = [
@@ -25,20 +26,6 @@ const months = [
   'Nov',
   'Dec',
 ];
-const body = document.body;
-
-// const toggle = document.querySelector('.toggle');
-
-// toggle.addEventListener('click', e => {
-//   const html = document.querySelector('html');
-//   if (html.classList.contains('dark')) {
-//     html.classList.remove('dark');
-//     e.target.innerHTML = 'Dark mode';
-//   } else {
-//     html.classList.add('dark');
-//     e.target.innerHTML = 'Light mode';
-//   }
-// });
 
 function setTime() {
   const time = new Date();
@@ -66,29 +53,30 @@ setTime();
 
 setInterval(setTime, 1000);
 
+const slides = [
+  'url(img/10_8.jpg)',
+  'url(img/10_10.jpg)',
+  'url(img/10_11.jpg)',
+  'url(img/10_14.jpg)',
+  'url(img/10_15.jpg)',
+];
+
+let i = 0;
+
 function slideshow() {
-  window.clearTimeout();
-  let slides = [
-    'url(img/10_8.jpg)',
-    'url(img/10_10.jpg)',
-    'url(img/10_11.jpg)',
-    'url(img/10_14.jpg)',
-    'url(img/10_15.jpg)',
-  ];
+  body.style.backgroundImage = slides[i];
 
-  for (let i = 0; i < slides.length - 1; i++) {
-    setTimeout(() => {
-      body.style.backgroundImage = `${slides[i]}`;
+  slides.forEach((slide, i) => {
+    body.style.backgroundImage = 'none';
+  });
 
-      if (i === slides.length - 1) {
-        body.style.backgroundImage = `${slides[i]}`;
-        slides = 0;
-      } else {
-        body.style.backgroundImage = `${slides[i]}`;
-        slides++;
-      }
-    }, 2000);
+  if (i === slides.length) {
+    i = 0;
   }
+
+  body.style.backgroundImage = slides[i];
+
+  i++;
 }
 
-slideshow();
+setInterval(slideshow, 10000);
