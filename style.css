@@ -11,6 +11,7 @@ html {
 body {
   font-family: 'Heebo', sans-serif;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -20,6 +21,30 @@ body {
   background-image: url(img/10_15.jpg);
   background-position: center center;
   background-size: cover;
+}
+
+.search {
+  margin-bottom: 60px;
+  height: 40px;
+}
+
+.search .input {
+  content: float;
+  align-items: stretch;
+  width: fit-content;
+  background: rgba(66, 66, 66, 0.466);
+  color: #ddd;
+  border: 0;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 15px;
+  height: 40px;
+  width: auto;
+}
+
+#textarea:focus {
+  outline: 0;
 }
 
 .clock-container {
