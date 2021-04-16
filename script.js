@@ -76,17 +76,16 @@ function slideshow() {
 
 setInterval(slideshow, 10000);
 
-textarea.focus();
-
-textarea.addEventListener('keyup', e => {
-  if (e.key === 'Enter') {
-    e.target.value = ' ';
-  }
-});
+// Testing to trigger a keyboard shortcut with a click function
 
 // function triggerAdressBar(e) {
-//   body.focus(e);
-//   window.location.assign('');
+//   body.click();
+
+//   let event = 'eventKey === 91 && eventKey === 76';
+//   // event.metaKey = true;
+//   // event.which = 76;
+//   window.location.assign('∏');
+//   console.log(e);
 // }
 
 // body.addEventListener('click', triggerAdressBar);
@@ -109,7 +108,10 @@ textarea.addEventListener('keyup', e => {
 //   $('body').trigger(e);
 // });
 
-// var e = e.target.event('keydown');
-// e.shiftKey = true;
-// e.which = 32;
-// $('body').trigger(e);
+// textarea.focus();
+
+// textarea.addEventListener('keyup', e => {
+//   if (e.key === 'Enter') {
+//     e.target.value = ' ';
+//   }
+// });
