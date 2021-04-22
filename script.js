@@ -60,6 +60,7 @@ function slideshow() {
   slides.forEach(slide => {
     setActiveSlide();
     activeSlide++;
+
     if (activeSlide > slides.length - 1) {
       activeSlide = 0;
       activeSlide++;
@@ -72,7 +73,7 @@ function setActiveSlide() {
   slides[activeSlide].classList.add('active');
 }
 
-setInterval(slideshow, 10000);
+setInterval(slideshow, 12000);
 
 //
 //
