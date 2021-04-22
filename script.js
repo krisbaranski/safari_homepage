@@ -1,6 +1,5 @@
 'use strict';
 
-const body = document.body;
 const textarea = document.getElementById('textarea');
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
@@ -30,15 +29,10 @@ const months = [
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 };
-const slides = [
-  'url(img/10_8.jpg)',
-  'url(img/10_10.jpg)',
-  'url(img/10_11.jpg)',
-  'url(img/10_14.jpg)',
-  'url(img/10_15.jpg)',
-];
+const slides = document.querySelectorAll('.slide');
+// const slide = document.querySelector('.slide');
 
-let i = 0;
+let activeSlide = 1;
 
 function setTime() {
   const time = new Date();
@@ -48,6 +42,7 @@ function setTime() {
   const hours = time.getHours();
   const hoursForClock = hours >= 24 ? hours % 12 : hours;
   const minutes = time.getMinutes();
+  // const seconds = time.getSeconds();
 
   timeEl.innerHTML = `${
     hoursForClock < 10 ? `0${hoursForClock}` : hoursForClock
@@ -55,7 +50,6 @@ function setTime() {
   dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
 
   // For adding seconds to the functon
-  // const seconds = time.getSeconds();
   // :${seconds < 10 ? `0${seconds}` : seconds}
 }
 
@@ -63,19 +57,28 @@ setTime();
 setInterval(setTime, 1000);
 
 function slideshow() {
-  body.style.backgroundImage = slides[i];
-  slides.forEach((slide, i) => {
-    body.style.backgroundImage = 'none';
+  slides.forEach(slide => {
+    setActiveSlide();
+    activeSlide++;
+    if (activeSlide > slides.length - 1) {
+      activeSlide = 0;
+      activeSlide++;
+    }
   });
-  if (i === slides.length) {
-    i = 0;
-  }
-  body.style.backgroundImage = slides[i];
-  i++;
+}
+
+function setActiveSlide() {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[activeSlide].classList.add('active');
 }
 
 setInterval(slideshow, 10000);
 
+//
+//
+//
+//
+//
 // Testing to trigger a keyboard shortcut with a click function
 
 // function triggerAdressBar(e) {
