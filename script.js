@@ -1,5 +1,8 @@
 'use strict';
 
+///////////////////////////////////////////
+// Time and Date
+
 const textarea = document.getElementById('textarea');
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
@@ -29,10 +32,6 @@ const months = [
 const scale = (num, in_min, in_max, out_min, out_max) => {
   return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 };
-const slides = document.querySelectorAll('.slide');
-// const slide = document.querySelector('.slide');
-
-let activeSlide = 1;
 
 function setTime() {
   const time = new Date();
@@ -56,24 +55,27 @@ function setTime() {
 setTime();
 setInterval(setTime, 1000);
 
-function slideshow() {
-  slides.forEach(slide => {
-    setActiveSlide();
-    activeSlide++;
+// ///////////////////////////////////////////
+// Slideshow
 
-    if (activeSlide > slides.length - 1) {
-      activeSlide = 0;
-      activeSlide++;
-    }
-  });
+const slides = document.querySelectorAll('.slide');
+
+let activeSlide = 0;
+
+function slideshow() {
+  if (activeSlide > slides.length - 1) {
+    activeSlide = 0;
+  }
+  setActiveSlide();
 }
 
 function setActiveSlide() {
   slides.forEach(slide => slide.classList.remove('active'));
   slides[activeSlide].classList.add('active');
+  activeSlide++;
 }
 
-setInterval(slideshow, 12000);
+setInterval(slideshow, 10000);
 
 //
 //
