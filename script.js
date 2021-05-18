@@ -77,7 +77,7 @@ function setActiveSlide() {
 
 setInterval(slideshow, 10000);
 
-window.onload = setActiveSlide;
+window.onload = setActiveSlide();
 
 //
 //
