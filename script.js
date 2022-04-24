@@ -1,8 +1,6 @@
 'use strict';
 
-///////////////////////////////////////////
-// Time and Date
-
+// Time and Date adjustments
 const textarea = document.getElementById('textarea');
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
@@ -55,9 +53,7 @@ function setTime() {
 setTime();
 setInterval(setTime, 1000);
 
-// ///////////////////////////////////////////
-// Slideshow
-
+// Slideshow functionality
 const slides = document.querySelectorAll('.slide');
 
 let activeSlide = 0;
@@ -78,48 +74,3 @@ function setActiveSlide() {
 setInterval(slideshow, 10000);
 
 window.onload = setActiveSlide();
-
-//
-//
-//
-//
-//
-// Testing to trigger a keyboard shortcut with a click function
-
-// function triggerAdressBar(e) {
-//   body.click();
-
-//   let event = 'eventKey === 91 && eventKey === 76';
-//   // event.metaKey = true;
-//   // event.which = 76;
-//   window.location.assign('∏');
-//   console.log(e);
-// }
-
-// body.addEventListener('click', triggerAdressBar);
-
-// Testing to trigger a keyboard shortcut with a click function
-
-// $(document).ready(function () {
-//   $(document).on('keypress', 'body', function (e) {
-//     var code = e.keyCode || e.which;
-
-//     if ((code = 110)) {
-//       console.log('Successfully triggered ALT+N');
-//     }
-//   });
-
-// window.on('click', '#copy', function () {
-//   var e = $.Event('keypress');
-//   e.which = 110; // Character 'A'
-//   console.log(e);
-//   $('body').trigger(e);
-// });
-
-// textarea.focus();
-
-// textarea.addEventListener('keyup', e => {
-//   if (e.key === 'Enter') {
-//     e.target.value = ' ';
-//   }
-// });
