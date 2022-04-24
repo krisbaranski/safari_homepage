@@ -1,6 +1,6 @@
 # Safari Homepage
 
-Safari Homepage is a free simple slideshow page with an hour and date.
+Safari Homepage is a free simple slideshow page with time and date.
 
 HTML5, CSS and JS-powered.
 
