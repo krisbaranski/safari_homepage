@@ -8,4 +8,4 @@ HTML5, CSS and JS-powered.
 - You can also manipulate slideshow timer in JS file (now setInterval to 12000ms)
 - I kept seconds for the clock as a comment
 
-![Screenshot](img/Screenshot.png)
+![Slideshow](slideshow.gif)
